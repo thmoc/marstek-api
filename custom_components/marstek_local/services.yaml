@@ -1,0 +1,73 @@
+set_passive_mode:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: marstek_local
+    power:
+      required: true
+      example: 100
+      selector:
+        number:
+          min: -2500
+          max: 2500
+          unit_of_measurement: W
+          mode: box
+    duration:
+      default: 300
+      selector:
+        number:
+          min: 1
+          max: 86400
+          unit_of_measurement: s
+          mode: box
+
+set_manual_schedule:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: marstek_local
+    time_num:
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 9
+          mode: box
+    start_time:
+      required: true
+      example: "08:30"
+      selector:
+        text:
+    end_time:
+      required: true
+      example: "20:30"
+      selector:
+        text:
+    days:
+      default: [mon, tue, wed, thu, fri, sat, sun]
+      selector:
+        select:
+          multiple: true
+          options: [mon, tue, wed, thu, fri, sat, sun]
+    power:
+      required: true
+      selector:
+        number:
+          min: -2500
+          max: 2500
+          unit_of_measurement: W
+          mode: box
+    enable:
+      default: true
+      selector:
+        boolean:
+    manual_set:
+      selector:
+        number:
+          min: 0
+          max: 3
+          mode: box

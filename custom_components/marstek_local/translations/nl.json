@@ -1,0 +1,159 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Marstek Local API",
+        "description": "Zet eerst de Local API aan in de Marstek-app (UDP, standaard poort 30000).",
+        "data": {
+          "host": "IP-adres",
+          "port": "UDP-poort"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Geen antwoord van het apparaat. Controleer IP, poort en of de Local API aanstaat."
+    },
+    "abort": {
+      "already_configured": "Dit apparaat is al geconfigureerd"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "battery_soc": {
+        "name": "Batterijniveau"
+      },
+      "battery_temperature": {
+        "name": "Batterijtemperatuur"
+      },
+      "battery_remaining_capacity": {
+        "name": "Resterende batterijcapaciteit"
+      },
+      "battery_rated_capacity": {
+        "name": "Nominale batterijcapaciteit"
+      },
+      "pv_power": {
+        "name": "Zonnevermogen"
+      },
+      "ongrid_power": {
+        "name": "Netvermogen"
+      },
+      "offgrid_power": {
+        "name": "Off-grid vermogen"
+      },
+      "battery_power": {
+        "name": "Batterijvermogen"
+      },
+      "total_pv_energy": {
+        "name": "Totaal zonne-energie"
+      },
+      "total_grid_output_energy": {
+        "name": "Totaal energie naar net"
+      },
+      "total_grid_input_energy": {
+        "name": "Totaal energie van net"
+      },
+      "total_load_energy": {
+        "name": "Totaal verbruikte energie"
+      },
+      "ct_total_power": {
+        "name": "CT totaalvermogen"
+      },
+      "ct_phase_a_power": {
+        "name": "CT vermogen fase A"
+      },
+      "ct_phase_b_power": {
+        "name": "CT vermogen fase B"
+      },
+      "ct_phase_c_power": {
+        "name": "CT vermogen fase C"
+      }
+    },
+    "binary_sensor": {
+      "charge_allowed": {
+        "name": "Laden toegestaan"
+      },
+      "discharge_allowed": {
+        "name": "Ontladen toegestaan"
+      },
+      "ct_connected": {
+        "name": "CT verbonden"
+      }
+    },
+    "select": {
+      "operating_mode": {
+        "name": "Bedrijfsmodus"
+      }
+    },
+    "number": {
+      "passive_power": {
+        "name": "Passief vermogen"
+      },
+      "passive_duration": {
+        "name": "Passieve duur"
+      }
+    },
+    "button": {
+      "activate_passive": {
+        "name": "Passieve modus activeren"
+      }
+    }
+  },
+  "services": {
+    "set_passive_mode": {
+      "name": "Passieve modus instellen",
+      "description": "Laad of ontlaad met een vast vermogen gedurende beperkte tijd. Positief = ontladen, negatief = laden.",
+      "fields": {
+        "device_id": {
+          "name": "Apparaat",
+          "description": "Apparaat"
+        },
+        "power": {
+          "name": "Passief vermogen",
+          "description": "Vermogen in W. Positief = ontladen, negatief = laden."
+        },
+        "duration": {
+          "name": "Passieve duur",
+          "description": "Countdown in seconden waarna de passieve modus eindigt."
+        }
+      }
+    },
+    "set_manual_schedule": {
+      "name": "Handmatig schema instellen",
+      "description": "Stel één tijdslot voor de handmatige modus in en schakel naar Manual.",
+      "fields": {
+        "device_id": {
+          "name": "Apparaat",
+          "description": "Apparaat"
+        },
+        "time_num": {
+          "name": "time_num",
+          "description": "0-9 (E mini: 0-5)"
+        },
+        "start_time": {
+          "name": "start_time",
+          "description": "hh:mm"
+        },
+        "end_time": {
+          "name": "end_time",
+          "description": "hh:mm"
+        },
+        "days": {
+          "name": "days",
+          "description": ""
+        },
+        "power": {
+          "name": "Passief vermogen",
+          "description": "Vermogen in W. Positief = ontladen, negatief = laden."
+        },
+        "enable": {
+          "name": "enable",
+          "description": ""
+        },
+        "manual_set": {
+          "name": "manual_set",
+          "description": "Venus E mini: 0 off, 1 charge, 2 discharge, 3 auto"
+        }
+      }
+    }
+  }
+}

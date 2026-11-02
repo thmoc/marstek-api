@@ -1,0 +1,159 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Marstek Local API",
+        "description": "Enable the Local API in the Marstek app first (UDP, default port 30000).",
+        "data": {
+          "host": "IP address",
+          "port": "UDP port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No response from the device. Check IP, port and that the Local API is enabled."
+    },
+    "abort": {
+      "already_configured": "This device is already configured"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "battery_soc": {
+        "name": "Battery level"
+      },
+      "battery_temperature": {
+        "name": "Battery temperature"
+      },
+      "battery_remaining_capacity": {
+        "name": "Battery remaining capacity"
+      },
+      "battery_rated_capacity": {
+        "name": "Battery rated capacity"
+      },
+      "pv_power": {
+        "name": "Solar power"
+      },
+      "ongrid_power": {
+        "name": "Grid-tied power"
+      },
+      "offgrid_power": {
+        "name": "Off-grid power"
+      },
+      "battery_power": {
+        "name": "Battery power"
+      },
+      "total_pv_energy": {
+        "name": "Total solar energy"
+      },
+      "total_grid_output_energy": {
+        "name": "Total grid output energy"
+      },
+      "total_grid_input_energy": {
+        "name": "Total grid input energy"
+      },
+      "total_load_energy": {
+        "name": "Total load energy"
+      },
+      "ct_total_power": {
+        "name": "CT total power"
+      },
+      "ct_phase_a_power": {
+        "name": "CT phase A power"
+      },
+      "ct_phase_b_power": {
+        "name": "CT phase B power"
+      },
+      "ct_phase_c_power": {
+        "name": "CT phase C power"
+      }
+    },
+    "binary_sensor": {
+      "charge_allowed": {
+        "name": "Charging allowed"
+      },
+      "discharge_allowed": {
+        "name": "Discharging allowed"
+      },
+      "ct_connected": {
+        "name": "CT connected"
+      }
+    },
+    "select": {
+      "operating_mode": {
+        "name": "Operating mode"
+      }
+    },
+    "number": {
+      "passive_power": {
+        "name": "Passive power"
+      },
+      "passive_duration": {
+        "name": "Passive duration"
+      }
+    },
+    "button": {
+      "activate_passive": {
+        "name": "Activate passive mode"
+      }
+    }
+  },
+  "services": {
+    "set_passive_mode": {
+      "name": "Set passive mode",
+      "description": "Charge or discharge at a fixed power for a limited time. Positive = discharge, negative = charge.",
+      "fields": {
+        "device_id": {
+          "name": "Device",
+          "description": "Device"
+        },
+        "power": {
+          "name": "Passive power",
+          "description": "Power in W. Positive = discharge, negative = charge."
+        },
+        "duration": {
+          "name": "Passive duration",
+          "description": "Countdown in seconds after which passive mode ends."
+        }
+      }
+    },
+    "set_manual_schedule": {
+      "name": "Set manual schedule",
+      "description": "Configure one manual-mode time slot and switch to Manual mode.",
+      "fields": {
+        "device_id": {
+          "name": "Device",
+          "description": "Device"
+        },
+        "time_num": {
+          "name": "time_num",
+          "description": "0-9 (E mini: 0-5)"
+        },
+        "start_time": {
+          "name": "start_time",
+          "description": "hh:mm"
+        },
+        "end_time": {
+          "name": "end_time",
+          "description": "hh:mm"
+        },
+        "days": {
+          "name": "days",
+          "description": ""
+        },
+        "power": {
+          "name": "Passive power",
+          "description": "Power in W. Positive = discharge, negative = charge."
+        },
+        "enable": {
+          "name": "enable",
+          "description": ""
+        },
+        "manual_set": {
+          "name": "manual_set",
+          "description": "Venus E mini: 0 off, 1 charge, 2 discharge, 3 auto"
+        }
+      }
+    }
+  }
+}
